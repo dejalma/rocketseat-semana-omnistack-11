@@ -21,13 +21,16 @@ export default function NewIncident() {
   async function handleNewIncident(e) {
     e.preventDefault()
 
-    const data = {
-      title,
-      description,
-      value
-    }
-
     try {
+      const valueInReais = (value) ? value.replace('.', '').replace(',', '.') : ''
+      console.log(valueInReais)
+
+      const data = {
+        title,
+        description,
+        value: valueInReais
+      }
+
       await api.post('/incidents', data, {
         headers: {
           Authorization: ongId
@@ -35,7 +38,7 @@ export default function NewIncident() {
       })
 
       history.push('/profile')
-    } catch(error) {
+    } catch (error) {
       alert(`Erro ao cadastrar caso. ${error}`)
     }
   }
@@ -68,7 +71,7 @@ export default function NewIncident() {
             onChange={e => setDescription(e.target.value)}
           />
           <input
-            placeholder="Valor (R$)"
+            placeholder="Valor (R$) - Exemplo: 1.234,56"
             value={value}
             onChange={e => setValue(e.target.value)}
           />
