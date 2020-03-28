@@ -23,7 +23,6 @@ export default function NewIncident() {
 
     try {
       const valueInReais = (value) ? value.replace('.', '').replace(',', '.') : ''
-      console.log(valueInReais)
 
       const data = {
         title,
