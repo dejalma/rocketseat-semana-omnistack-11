@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon src/index.js",
+    "start": "nodemon src/server.js",
     "dev": "nodemon --experimental-modules -L src/index.js",
-    "test": "jest --coverage --watchAll"
+    "test": "cross-env NODE_ENV=test jest"
   },
   "keywords": [],
   "author": "",
@@ -14,6 +14,7 @@
   "dependencies": {
     "celebrate": "^12.0.1",
     "cors": "^2.8.5",
+    "cross-env": "^7.0.2",
     "express": "^4.17.1",
     "knex": "^0.20.13",
     "sqlite3": "^4.1.1"
@@ -25,7 +26,8 @@
     "@babel/plugin-transform-modules-commonjs": "^7.9.0",
     "@babel/preset-env": "^7.9.0",
     "babel-jest": "^25.1.0",
-    "jest": "^25.1.0",
-    "nodemon": "^2.0.2"
+    "jest": "^25.2.4",
+    "nodemon": "^2.0.2",
+    "supertest": "^4.0.2"
   }
 }
